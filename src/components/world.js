@@ -1,18 +1,35 @@
 import React from 'react';
 import Territory from './territory';
-import { MAP } from './constants';
+import { MAP, LINK } from './constants';
 
 export default class World extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			round: 0
+			round: 0,
+			selected: ""
 		};
 	}
 
+	handleClick (value) {
+		console.log("CLICK: " + value);
+		this.setState({selected: value});
+		// if (value === this.state.selected) {
+		// 	this.setState({selected: ""});
+		// } else {
+		//	this.setState({selected: value});
+		// }
+	}
+
+	handleClear () {
+		console.log("CLEAR");
+		// this.setState({selected: ""});
+	}
+
 	render () {
+		const curr = (this.state.selected) ? LINK[this.state.selected].connected : [];
 		return (
-			<svg className="app-game fillv map-game" viewBox="0 0 1227 628">
+			<svg className="app-game fillv map-game" viewBox="0 0 1227 628" onClick={this.handleClear.bind(this)}>
 				<line x1="397" y1="381" x2="490" y2="312"/>
 				<line x1="722" y1="380" x2="753" y2="426"/>
 				<line x1="700" y1="454" x2="736" y2="454"/>
@@ -39,7 +56,7 @@ export default class World extends React.Component {
 				<line x1="1115" y1="384" x2="1115" y2="417"/>
 				<line x1="1115" y1="384" x2="1077" y2="426"/>
 				<line x1="1067" y1="411" x2="1067" y2="432"/>
-				{Object.keys(MAP).map((key) => <Territory key={key} tid={key} />)}
+				{Object.keys(MAP).map((key) => <Territory key={key} tid={key} sel={key === this.state.selected} lnk={curr.includes(key)} onClick={this.handleClick.bind(this, key)} />)}
 			</svg>
 		);
 	}

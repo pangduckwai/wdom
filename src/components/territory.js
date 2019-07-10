@@ -6,24 +6,31 @@ export default class Territory extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			selected: false,
 			owner: "player0",
 			army: 0
 		};
 	}
 
-	handleClick (value) {
-		console.log(value + " clicked!!!");
+	handleClick (value, e) {
+		e.preventDefault();
+		console.log("Well... " + value);
+		this.props.onClick(value);
+		this.setState((state, props) => ({
+			army: state.army + 1
+		}));
 	}
 
 	render () {
 		const local = MAP[this.props.tid];
+		let clazz = 'c';
+		if (this.props.sel) clazz = 'c s';
+		if (this.props.lnk) clazz = 'c l';
 		return (
-			<g className={(this.state.selected ? 'c s' : 'c')} id={this.props.tid} onClick={() => this.handleClick(this.props.tid)}>
+			<g className={clazz} id={this.props.tid} onClick={this.handleClick.bind(this, this.props.tid)}>
 				<path
 					className={local.continent + ' ' + local.cindex}
 					d={local.svgPath}/>
-				<text className="tname" x={local.loc[0]} y={local.loc[1]}>
+				<text className="tname" x="560" y="590">
 					{this.props.tid}
 				</text>
 				<text className="tarmy" x={local.loc[0]} y={local.loc[1]}>
