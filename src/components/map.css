@@ -12,7 +12,8 @@ svg {
 }
 .tname {
 	fill: #101010;
-	font-size: 1em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
 	font-weight: bold;
 	text-anchor: middle;
 	dominant-baseline: middle;
@@ -20,6 +21,7 @@ svg {
 }
 .tarmy {
 	fill: #101010;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.8em;
 	font-weight: normal;
 	text-anchor: middle;
@@ -64,6 +66,7 @@ polyline {
 	}
 }
 
+.player0 { fill:lightgray; }
 .player1 { fill:red; }
 .player2 { fill:blueviolet; }
 .player3 { fill:burlywood; }
@@ -71,33 +74,33 @@ polyline {
 .player5 { fill:black; }
 .player6 { fill:white; }
 
-#Africa .v0 { fill:#deb887; }
-#Africa .v1 { fill:#deae70; }
-#Africa .v2 { fill:#dea357; }
-#Africa .v3 { fill:#de9c47; }
-#Asia .v0 { fill:#90ee90; }
-#Asia .v1 { fill:#77ee77; }
-#Asia .v2 { fill:#5fee5f; }
-#Asia .v3 { fill:#47ee47; }
-#Asia .v4 { fill:#28ee28; }
-#Asia .v5 { fill:#b7eeb7; }
-#Australia .v0 { fill:#da70d6; }
-#Australia .v1 { fill:#da5cd5; }
-#Australia .v2 { fill:#da48d4; }
-#Australia .v3 { fill:#da32d4; }
-#Europe .v0 { fill:#7ea6ed; }
-#Europe .v1 { fill:#6b99ed; }
-#Europe .v2 { fill:#588ded; }
-#Europe .v3 { fill:#4581ed; }
-#Europe .v4 { fill:#3275ed; }
-#North-America .v0 { fill:#ffa07a; }
-#North-America .v1 { fill:#ff956b; }
-#North-America .v2 { fill:#ff8a5c; }
-#North-America .v3 { fill:#ff7c47; }
-#North-America .v4 { fill:#ff6d33; }
-#South-America .v0 { fill:#9370d8; }
-#South-America .v1 { fill:#885fd8; }
-#South-America .v2 { fill:#7c4ed8; }
+.Africa.v0 { fill:#deb887; }
+.Africa.v1 { fill:#deae70; }
+.Africa.v2 { fill:#dea357; }
+.Africa.v3 { fill:#de9c47; }
+.Asia.v0 { fill:#90ee90; }
+.Asia.v1 { fill:#77ee77; }
+.Asia.v2 { fill:#5fee5f; }
+.Asia.v3 { fill:#47ee47; }
+.Asia.v4 { fill:#28ee28; }
+.Asia.v5 { fill:#b7eeb7; }
+.Australia.v0 { fill:#da70d6; }
+.Australia.v1 { fill:#da5cd5; }
+.Australia.v2 { fill:#da48d4; }
+.Australia.v3 { fill:#da32d4; }
+.Europe.v0 { fill:#7ea6ed; }
+.Europe.v1 { fill:#6b99ed; }
+.Europe.v2 { fill:#588ded; }
+.Europe.v3 { fill:#4581ed; }
+.Europe.v4 { fill:#3275ed; }
+.North-America.v0 { fill:#ffa07a; }
+.North-America.v1 { fill:#ff956b; }
+.North-America.v2 { fill:#ff8a5c; }
+.North-America.v3 { fill:#ff7c47; }
+.North-America.v4 { fill:#ff6d33; }
+.South-America.v0 { fill:#9370d8; }
+.South-America.v1 { fill:#885fd8; }
+.South-America.v2 { fill:#7c4ed8; }
 
 .badge {
 	stroke:black;
