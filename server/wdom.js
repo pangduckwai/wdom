@@ -6,9 +6,9 @@ const safe = require('safe-regex');
 const csrf = require('csurf');
 const limit = require('express-rate-limit');
 
-const app = express();
+const cors = require('cors'); //TODO TEMP: not for production use!!!
 
-const SERVER_PORT = 54321;
+const app = express();
 
 app.set('trust proxy', 1); // trust first proxy
 app.use(session({
@@ -40,7 +40,9 @@ app.use(limiter);
 
 app.use(express.static('html', { index: false }));
 
-app.get('/', (req, res) => res.send('Hello World Secure!!!'));
+app.use(cors()); //TODO TEMP: not for production use!!!
+
+app.get('/', (req, res) => res.send('World Domination - The Game!'));
 
 app.get('/i/time', (req, res) => {
 	let now = new Date();
@@ -54,8 +56,7 @@ app.get('/i/time', (req, res) => {
 	});
 });
 
-app.get('/i/clock', (req, res) => {
-	res.send('<html><head><title>CLOCK</title><script src="sea9.js" type="text/javascript"></script><script type="text/javascript">function l(){t("k", "./i/time");};</script></head><body onload="l();"><p id="k">&nbsp;</p></body></html>');
-});
+const game = require('./game');
+app.use('/game', game);
 
-app.listen(SERVER_PORT, () => console.log('Example app listening on port', SERVER_PORT));
+app.listen(54321, () => console.log('WDOM listening on port', 54321));

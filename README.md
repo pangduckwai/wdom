@@ -1,2 +1,2 @@
 # wdom
-World Domination the Game!
+World Domination - The Game!

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import World from './components/world';
+import Game from './components/game';
 
 ReactDOM.render(
-	<World />,
+	<Game />,
 	document.getElementById('root')
 );
