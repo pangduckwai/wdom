@@ -3,24 +3,25 @@ import { MAP } from './constants';
 import './map.css';
 
 export default class Territory extends React.Component {
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.state = {
-			owner: "player0",
-			army: 0
+			owner: `player${props.player + 1}`,
+			army: (props.player >= 0) ? 1 : 0
 		};
 	}
 
-	handleClick (value, e) {
-		e.preventDefault();
-		console.log("Well... " + value);
+	handleClick(value, e) {
+		e.stopPropagation();
+		e.nativeEvent.stopImmediatePropagation();
+
 		this.props.onClick(value);
 		this.setState((state, props) => ({
 			army: state.army + 1
 		}));
 	}
 
-	render () {
+	render() {
 		const local = MAP[this.props.tid];
 		let clazz = 'c';
 		if (this.props.sel) clazz = 'c s';
@@ -28,7 +29,7 @@ export default class Territory extends React.Component {
 		return (
 			<g className={clazz} id={this.props.tid} onClick={this.handleClick.bind(this, this.props.tid)}>
 				<path
-					className={local.continent + ' ' + local.cindex}
+					className={`${local.continent} ${local.cindex}`}
 					d={local.svgPath}/>
 				<text className="tname" x="560" y="590">
 					{this.props.tid}
@@ -38,7 +39,7 @@ export default class Territory extends React.Component {
 				</text>
 				<polyline
 					className={this.state.owner} points="0,0 0,-20 20,-15 0,-10"
-					transform={"translate(" + local.loc[2] + "," + local.loc[3] + ")"} />
+					transform={`translate(${local.loc[2]}, ${local.loc[3]})`} />
 			</g>
 		);
 	}

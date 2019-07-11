@@ -17,6 +17,8 @@
 		"max-len": 0,
 		"no-multi-spaces": 0,
 		"key-spacing": 0,
-		"object-curly-spacing": 0
+		"object-curly-spacing": 0,
+		"space-before-function-paren": 0,
+		"space-unary-ops": 0
     }
 }
