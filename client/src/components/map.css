@@ -31,9 +31,11 @@ svg {
 .c:hover path { opacity: 0.5; }
 .c:hover .tname { display: block; }
 .s path { opacity: 0.5; }
-.s .tname { display: none; }
 .s .tarmy { display: block; font-weight: bold; font-size: 1.2em; }
 .l path { opacity: 0.5; }
+
+.show { display: block; }
+.hide { display: none; }
 
 polyline {
 	stroke:black;

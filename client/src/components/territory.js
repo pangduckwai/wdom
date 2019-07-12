@@ -6,7 +6,7 @@ export default class Territory extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			army: 0
+			army: 1
 		};
 	}
 
@@ -26,9 +26,6 @@ export default class Territory extends React.Component {
 		if (this.props.sel) clazz = 'c s';
 		if (this.props.lnk) clazz = 'c l';
 
-		let val = this.state.army;
-		if (this.props.player > 0 && this.state.army === 0) val = 1; //TODO HERE!!! state not update!!!
-
 		return (
 			<g className={clazz} id={this.props.tid} onClick={this.handleClick.bind(this, this.props.tid)}>
 				<path
@@ -37,8 +34,8 @@ export default class Territory extends React.Component {
 				<text className="tname" x="560" y="590">
 					{this.props.tid}
 				</text>
-				<text className="tarmy" x={local.loc[0]} y={local.loc[1]}>
-					{val}
+				<text className={`tarmy ${this.props.player <= 0 ? "hide" : "show"}`} x={local.loc[0]} y={local.loc[1]}>
+					{this.state.army}
 				</text>
 				<polyline
 					className={`player${this.props.player}`} points="0,0 0,-20 20,-15 0,-10"
